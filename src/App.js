@@ -1,27 +1,34 @@
 import "./App.css";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import Header from "./Header";
+import Home from "./Home";
+import Checkout from "./Checkout";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div className='App'>
-      <div className='header__logo'></div>
-
-      <div className='header__search'></div>
-
-      <div className='header__nav'>
-        <div className='nav__item'>
-          <span className='nav__itemlineone'>Hello Guest</span>
-          <span className='nav__itemlinetwo'>Sign In</span>
-        </div>
-        <div className='nav__item'>
-          <span className='nav__itemlineone'>Your</span>
-          <span className='nav__itemlinetwo'>Shop</span>
-        </div>
-        <div className='nav__item'>
-          <ShoppingBasketIcon fontSize='large' />
-          <span className='nav__itemlinetwo'>0</span>
-        </div>
-      </div>
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route
+            path="/checkout"
+            element={
+              <div>
+                <Header />
+                <Checkout />
+              </div>
+            }
+          ></Route>
+          <Route
+            path="/"
+            element={
+              <div>
+                <Header />
+                <Home />
+              </div>
+            }
+          ></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
